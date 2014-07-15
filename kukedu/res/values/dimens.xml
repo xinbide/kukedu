@@ -2,4 +2,23 @@
 <resources>
     <dimen name="launcher_layout_margin_bottom">24.0dip</dimen>
     <dimen name="launcher_image_padding">15.0dip</dimen>
+    <dimen name="guide_btn_bottom">60dp</dimen>
+    <dimen name="login_txt_margin_left">10dp</dimen>
+    <dimen name="login_txt_textsize">35sp</dimen>
+    <dimen name="login_btn_padding">130dp</dimen>
+    <dimen name="login_btn_margin_top">20dp</dimen>
+    <dimen name="login_btn_textsize">18sp</dimen>
+    <dimen name="login_txt_padding">6dp</dimen>
+    <dimen name="login_txt_textsize2">14sp</dimen>
+    <dimen name="login_layout_height">45dp</dimen>
+    
+    
+    <dimen name="SmallTextSize">14.0dip</dimen>
+    <dimen name="SmallerTextSize">13.0dip</dimen>
+    <dimen name="SmallestTextSize">12.0dip</dimen>
+    <dimen name="LargeTextSize">16.0dip</dimen>
+    <dimen name="LargestTextSize">30.0dip</dimen>
+    <dimen name="PreferenceItemHeight">42.0dip</dimen>
+    
+    
 </resources>

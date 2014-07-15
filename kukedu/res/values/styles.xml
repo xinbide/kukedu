@@ -16,5 +16,151 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+    <!-- basic -->
+	<style name="KukCheckBox">
+        <item name="android:background">@drawable/kuk_checkbox_btn</item>
+    </style>
+    <style name="KukListView">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:listSelector">@drawable/list_selector_background</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0.0px</item>
+    </style>
+	<style name="KukPreference">
+        <item name="android:layout">@layout/kuk_preference</item>
+    </style>
+    <style name="KukPreferenceScreen">
+        <item name="android:layout">@layout/kuk_preference</item>
+        <item name="android:widgetLayout">@layout/kuk_preference_screen</item>
+    </style>
+    <style name="KukPreference.Child" parent="@style/KukPreference">
+        <item name="android:layout">@layout/kuk_preference_child</item>
+    </style>
+    <style name="KukPreference.Information" parent="@style/KukPreference">
+        <item name="android:enabled">false</item>
+        <item name="android:layout">@layout/kuk_preference</item>
+        <item name="android:shouldDisableView">false</item>
+    </style>
+    <style name="KukPreference.Catagory" parent="@style/KukPreference">
+        <item name="android:layout">@layout/kuk_preference_catalog</item>
+    </style>
+    <style name="KukPreference.CheckBoxPreference" parent="@style/KukPreference">
+        <item name="android:widgetLayout">@layout/kuk_preference_checkbox</item>
+    </style>
+    <style name="KukPreference.RingtonePreference" parent="@style/KukPreference">
+        <item name="android:ringtoneType">ringtone</item>
+        <item name="android:showDefault">true</item>
+        <item name="android:showSilent">true</item>
+    </style>
+    <style name="KukPreference.DialogPreference.YesNoPreference" parent="@style/KukPreference.DialogPreference">
+        <item name="android:positiveButtonText">@android:string/yes</item>
+        <item name="android:negativeButtonText">@android:string/no</item>
+    </style>
+    <style name="KukPreference.DialogPreference.EditTextPreference" parent="@style/KukPreference.DialogPreference">
+        <item name="android:dialogLayout">@layout/kuk_preference_dialog_edittext</item>
+    </style>
+    <style name="KukPreference.DialogPreference" parent="@style/KukPreference">
+        <item name="android:positiveButtonText">@android:string/ok</item>
+        <item name="android:negativeButtonText">@android:string/cancel</item>
+    </style>
+    
+    <style name="KukAnimation.Activity" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+    
+	<style name="KukTheme.Basic" parent="@android:style/Theme">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:checkboxStyle">@style/KukCheckBox</item>
+        <item name="android:listViewStyle">@style/KukListView</item>
+        <item name="android:preferenceScreenStyle">@style/KukPreferenceScreen</item>
+        <item name="android:preferenceCategoryStyle">@style/KukPreference.Catagory</item>
+        <item name="android:preferenceInformationStyle">@style/KukPreference.Information</item>
+        <item name="android:preferenceStyle">@style/KukPreference</item>
+        <item name="android:checkBoxPreferenceStyle">@style/KukPreference.CheckBoxPreference</item>
+        <item name="android:yesNoPreferenceStyle">@style/KukPreference.DialogPreference.YesNoPreference</item>
+        <item name="android:dialogPreferenceStyle">@style/KukPreference.DialogPreference</item>
+        <item name="android:editTextPreferenceStyle">@style/KukPreference.DialogPreference.EditTextPreference</item>
+        <item name="android:ringtonePreferenceStyle">@style/KukPreference.RingtonePreference</item>
+        <item name="android:preferenceLayoutChild">@style/KukPreference.Child</item>
+        <item name="android:windowAnimationStyle">@style/KukAnimation.Activity</item>
+    </style>
+    <style name="MMPreferenceTextSmall">
+        <item name="android:textSize">@dimen/SmallTextSize</item>
+        
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style><!-- <item name="android:textColor">@color/mm_pref_summary</item> -->
+    <style name="MMPreferenceTextLarge">
+        <item name="android:textSize">@dimen/LargeTextSize</item>
+        
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style><!-- <item name="android:textColor">@color/mm_pref_title</item> -->
+	<style name="MMFontPreferenceSmall">
+        <item name="android:textAppearance">@style/MMPreferenceTextSmall</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:shadowColor">#a0ffffff</item>
+        <item name="android:shadowDx">1.2</item>
+        <item name="android:shadowDy">1.2</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+    <style name="MMFontPreferenceLarge">
+        <item name="android:textAppearance">@style/MMPreferenceTextLarge</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="MMFontPreferenceSummary" parent="@style/MMFontPreferenceSmall">
+        <item name="android:textAppearance">@style/MMPreferenceTextSmall</item>
+        <item name="android:textSize">@dimen/SmallTextSize</item>
+    </style>
+	<!--  -->
+    
+    <style name="AnimFade" parent="@android:style/Animation.Activity">  
+    	<item name="android:activityOpenEnterAnimation">@anim/fade_in</item>  
+    	<item name="android:activityOpenExitAnimation">@anim/hold</item>        
+    	<item name="android:activityCloseEnterAnimation">@anim/fade_in</item>  
+    	<item name="android:activityCloseExitAnimation">@anim/fade_out</item> 
+	</style>
+    
+   	<style name="Anim_style" parent="android:Theme.NoTitleBar.Fullscreen">         
+        <item name="android:windowAnimationStyle">@style/AnimFade</item>       
+	</style>  
+	
+	<style name="Anim_style2" parent="android:Theme.NoTitleBar">         
+        <item name="android:windowAnimationStyle">@style/AnimFade</item>       
+	</style> 
+	
+	<style name="CustomWindowTitleBackground">  
+       <item name="android:background">@drawable/title_bar</item>  
+	</style>
+	<style name="Anim_style_title" parent="android:Theme">         
+        <item name="android:windowAnimationStyle">@style/AnimFade</item> 
+        <item name="android:windowTitleSize">50dp</item>  
+        <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>      
+	</style>
+	
+	<style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    
+	
 </resources>

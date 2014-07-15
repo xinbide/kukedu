@@ -54,5 +54,31 @@
         
 
     </LinearLayout>
+    
+    <!-- <Button
+        android:id="@+id/btnEnterApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/guide_btn_bottom"
+        android:background="@drawable/img_enter_app_btn_bg"
+        android:text=""
+        android:visibility="gone" /> -->
+    <Button
+      	android:id="@+id/btnEnterApp"
+      	android:layout_width="120dp"
+      	android:layout_height="wrap_content"
+      	android:layout_alignParentBottom="true"
+      	android:layout_centerHorizontal="true"
+      	android:layout_marginBottom="120dp"
+      	android:text="@string/start"
+      	android:textSize="18sp"
+      	android:textColor="#fff"
+      	android:background="@drawable/btn_style_green"              
+	  	android:layout_gravity="center_vertical"
+	  	android:onClick="startbutton"
+	  	android:visibility="gone"
+      />
 
 </RelativeLayout>

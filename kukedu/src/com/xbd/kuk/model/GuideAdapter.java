@@ -12,7 +12,7 @@ public class GuideAdapter extends PagerAdapter {
 	private List<View> views;
 	
 	public GuideAdapter(List<View> views){
-		this.views = views; 
+		this.views = views;
 	}
 	
 	//销毁arg1位置的界面  
@@ -28,7 +28,7 @@ public class GuideAdapter extends PagerAdapter {
 	
 	@Override
 	public int getCount() {
-		if (views != null) 
+		if (views != null)
 			return views.size();
 		return 0;
 	}

@@ -3,5 +3,9 @@
     <color name="window_bg">#ffeef1f3</color>
     <color name="qqblue">#ff54acea</color>
     <color name="transparent">#00000000</color>
+    <color name="login_layout_bg">#eee</color>
+    <color name="login_app_text">#000000</color>
+    <color name="login_btn_text">#ffffff</color>
+    <color name="login_txt_text">#444</color>
     
 </resources>

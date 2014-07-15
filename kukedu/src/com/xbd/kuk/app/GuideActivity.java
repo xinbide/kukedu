@@ -4,20 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.xbd.kuk.model.GuideAdapter;
+import com.xbd.kuk.MainActivity;
 import com.xbd.kuk.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class GuideActivity extends Activity implements OnClickListener, OnPageChangeListener {
 
 	private ViewPager viewPager;
+	private Button btnEnterApp;
 	private GuideAdapter guideAdapter;
 	private List<View> views;
 	
@@ -46,6 +50,7 @@ public class GuideActivity extends Activity implements OnClickListener, OnPageCh
         	views.add(iv);
         }
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+        btnEnterApp = (Button) findViewById(R.id.btnEnterApp);
         //初始化Adapter
         guideAdapter = new GuideAdapter(views);
         viewPager.setAdapter(guideAdapter);
@@ -95,6 +100,23 @@ public class GuideActivity extends Activity implements OnClickListener, OnPageCh
 		dots[currentIndex].setEnabled(true);
 
 		currentIndex = positon;
+		
+		if (currentIndex >= pics.length - 1) {
+			btnEnterApp.setVisibility(View.VISIBLE);
+
+			btnEnterApp.setOnClickListener(new View.OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent = new Intent(GuideActivity.this, WelcomeDoorActivity.class);
+					startActivity(intent);
+					finish();
+				}
+			});
+		} else {
+			btnEnterApp.setVisibility(View.GONE);
+		}
     }
     
     //当滑动状态改变时调用
