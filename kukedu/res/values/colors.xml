@@ -7,5 +7,14 @@
     <color name="login_app_text">#000000</color>
     <color name="login_btn_text">#ffffff</color>
     <color name="login_txt_text">#444</color>
+    <color name="friend_preview_menu_bg">#4433b5e5</color> <!-- 蓝色30％透明背景颜色 -->
+    <color name="netloding_progress_bg">#EECCCCCC</color>
+    <color name="toast_area_bg">#047daa</color>
     
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="footer_text_color">#ff727272</color>
+    <color name="normal_text_color">#ff353535</color>
+    <color name="hint_color_white_bg">#ffc5c5c5</color>
+    <color name="dialog_divider_bg">#54a4c9</color> <!-- Dialog 分割线颜色 -->
 </resources>

@@ -3,7 +3,10 @@ package com.xbd.kuk;
 import java.util.ArrayList;
 
 import com.xbd.kuk.R;
+import com.xbd.kuk.app.Chat2Activity;
+import com.xbd.kuk.app.ChatActivity;
 import com.xbd.kuk.app.ExitActivity;
+import com.xbd.kuk.app.MainTopRightDialog;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -321,23 +324,20 @@ public class MainActivity extends Activity {
     }
 	//设置标题栏右侧按钮的作用
 	public void btnmainright(View v) {  
-//		Intent intent = new Intent (MainActivity.this, MainTopRightDialog.class);
-//		startActivity(intent);
-		Toast.makeText(getApplicationContext(), "点击了功能按钮", Toast.LENGTH_LONG).show();
+		Intent intent = new Intent (MainActivity.this, MainTopRightDialog.class);
+		startActivity(intent);
     }
 	public void startchat(View v) {      //小黑  对话界面
-//		Intent intent = new Intent (MainActivity.this, ChatActivity.class);
-//		startActivity(intent);
-		Toast.makeText(getApplicationContext(), "点击了聊天按钮", Toast.LENGTH_LONG).show();
+		//Intent intent = new Intent (MainActivity.this, ChatActivity.class);
+		Intent intent = new Intent (MainActivity.this, Chat2Activity.class);
+		startActivity(intent);
     }
 	public void exit_settings(View v) {                           //退出  伪“对话框”，其实是一个activity
 //		Intent intent = new Intent (MainActivity.this, ExitFromSettings.class);
 //		startActivity(intent);
-		Toast.makeText(getApplicationContext(), "点击了exit_setting按钮", Toast.LENGTH_LONG).show();
 	}
 	public void btn_shake(View v) {                                   //手机摇一摇
 //		Intent intent = new Intent (MainActivity.this, ShakeActivity.class);
 //		startActivity(intent);
-		Toast.makeText(getApplicationContext(), "点击了摇一摇按钮", Toast.LENGTH_LONG).show();
 	}
 }

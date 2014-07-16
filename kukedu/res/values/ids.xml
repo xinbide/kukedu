@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="chatting_foot_bar_group" />
+    <item type="id" name="chatting_mode_btn" />
+    <item type="id" name="text_panel_ll" />
+    <item type="id" name="chatting_mode_switcher" />
+    <item type="id" name="chatting_content_et" />
+    <item type="id" name="chatting_smiley_btn" />
+    <item type="id" name="voice_record_bt" />
+    <item type="id" name="chatting_wordcount_tv" />
+    <item type="id" name="chatting_attach_btn" />
+    <item type="id" name="chatting_bottom_panel" />
+    <item type="id" name="chatting_app_panel" />
+    <item type="id" name="chatting_send_group">false</item>
+    <item type="id" name="chatting_send_btn">false</item>
+    
+</resources>

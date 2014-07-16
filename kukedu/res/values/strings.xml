@@ -19,5 +19,35 @@
     <string name="setting">我</string>
     <string name="search">搜索</string>
    	<string name="welcome"> \n \n库课教育，是一个生活方式\n \n </string>
+    <string name="send">发送</string>
+    <string name="press_say">按住说话</string>
+    <string name="friend_preview_reset">重选</string>
+    <string name="friend_preview_use">使用</string>
+    <string name="friend_preview_title">头像选取</string>
+    <string name="msg_80_code">想要加你为好友</string>
+    <string name="msg_81_code">我通过了你的好友验证请求，开始和我对话吧！</string>
+    <string name="msg_81_code_success">已成为你的好友，打个招呼吧!</string>
+    <string name="loading_tips">正在加载...</string>
+    
+    <string name="alertdialog_title">提示</string>
+    <string name="alertdialog_message">是否退出学吧？</string>
+    <string name="alertdialog_switch_user">是否退出当前用户？</string>
+    <string name="alertdialog_logout_user">是否注销当前用户？</string>
+    <string name="alertdialog_ok">确定</string>
+    <string name="alertdialog_network_detail">查看详情</string>
+    <string name="alertdialog_cancel">取消</string>
+    <string name="version_update_alertdialog_ok">立即更新</string>
+    <string name="version_update_alertdialog_cacel">暂不更新</string>
+    
+    <string name="msg_title">库课</string>
+    <string name="msg_content">你收到了一条私信消息</string>
+    <string name="msg_ticker">库课新消息</string>
+    <string name="app_version_name">V 1.0.1</string>
 
+    <string name="chat_footer_switch_mode_btn">语音说话与键盘输入切换</string>
+    <string name="chat_footer_smiley_btn">表情</string>
+    <string name="chatfooter_presstorcd">按住 说话</string>
+    <string name="chat_footer_app_btn">更多</string>
+    <string name="chatting_send">发送</string>
+    <string name="homework_string_Line">&lt;u> &#160;&#160;&#160;&#160;&#160;(%1$d)&#160;&#160;&#160;&#160;&#160; &lt;/u></string>
 </resources>
