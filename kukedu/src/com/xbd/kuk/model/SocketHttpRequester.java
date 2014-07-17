@@ -13,6 +13,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.xbd.kuk.bean.FormFile;
 import com.xbd.kuk.datastart.DataUtils;
 import com.xbd.kuk.util.Constants;
 

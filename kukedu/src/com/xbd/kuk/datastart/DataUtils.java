@@ -3,8 +3,8 @@ package com.xbd.kuk.datastart;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.xbd.kuk.model.FriendInfo;
-import com.xbd.kuk.model.FriendMessage;
+import com.xbd.kuk.bean.FriendInfo;
+import com.xbd.kuk.bean.FriendMessage;
 import com.xbd.kuk.model.User;
 import com.xbd.kuk.model.UserProfessionItem;
 

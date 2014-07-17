@@ -1,4 +1,6 @@
-package com.xbd.kuk.model;
+package com.xbd.kuk.bean;
+
+import com.xbd.kuk.model.Model;
 
 public class FriendMessage extends Model<String> {
 

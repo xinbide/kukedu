@@ -14,4 +14,8 @@
     <item type="id" name="chatting_send_group">false</item>
     <item type="id" name="chatting_send_btn">false</item>
     
+    <item type="id" name="chat_record_img_avatar" />
+    <item type="id" name="chat_record_txt_name" />
+    <item type="id" name="chat_record_txt_timeago" />
+    <item type="id" name="chat_record_txt_content" />
 </resources>

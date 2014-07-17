@@ -12,8 +12,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 import com.xbd.kuk.R;
+import com.xbd.kuk.bean.FriendInfo;
 import com.xbd.kuk.datastart.DataUtils;
-import com.xbd.kuk.model.FriendInfo;
 
 import android.annotation.TargetApi;
 import android.content.Context;

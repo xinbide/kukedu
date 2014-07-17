@@ -1,4 +1,4 @@
-package com.xbd.kuk.model;
+package com.xbd.kuk.bean;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.xbd.kuk.bean.FriendMessage;
 import com.xbd.kuk.util.Constants;
 
 import android.os.Handler;

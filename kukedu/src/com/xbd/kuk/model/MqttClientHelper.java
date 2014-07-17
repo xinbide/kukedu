@@ -41,6 +41,8 @@ import com.ibm.mqtt.MqttPersistenceException;
 import com.xbd.kuk.MainActivity;
 import com.xbd.kuk.R;
 import com.xbd.kuk.app.Chat2Activity;
+import com.xbd.kuk.bean.FormFile;
+import com.xbd.kuk.bean.FriendMessage;
 import com.xbd.kuk.datastart.DataUtils;
 import com.xbd.kuk.util.Configuration;
 import com.xbd.kuk.util.Constants;

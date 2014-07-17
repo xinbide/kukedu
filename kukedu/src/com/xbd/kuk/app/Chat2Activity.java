@@ -14,10 +14,10 @@ import java.util.TimerTask;
 
 import com.xbd.kuk.MainApp;
 import com.xbd.kuk.R;
+import com.xbd.kuk.bean.FriendMessage;
 import com.xbd.kuk.datastart.DataUtils;
 import com.xbd.kuk.model.ChatMsgEntity;
 import com.xbd.kuk.model.ChatMsgViewAdapter;
-import com.xbd.kuk.model.FriendMessage;
 import com.xbd.kuk.model.MessageHandler;
 import com.xbd.kuk.model.MqttClientHelper;
 import com.xbd.kuk.model.User;
@@ -64,6 +64,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AbsListView.OnScrollListener;
@@ -94,10 +95,10 @@ public class Chat2Activity extends Activity implements OnClickListener
 	ImageView	chat_img_album;
 	
 	LinearLayout chat_layout_text;
-	LinearLayout chat_layout_audio;
-	View chat_layout_more;
-	View chat_layout_face;
-	View chat_layout_main;
+	FrameLayout chat_layout_audio;
+	FrameLayout chat_layout_more;
+	FrameLayout chat_layout_face;
+	RelativeLayout chat_layout_main;
 	KUKFaceView mGridView;
 	ListView mChatMsgListView;
 	
@@ -106,11 +107,10 @@ public class Chat2Activity extends Activity implements OnClickListener
 	private Button mSubmitBtn; // 确认选择图片的按钮
 	private ImageView mImagePreview;
 	
-	private View mRecorderView;
+	private FrameLayout mRecorderView;
 	private TextView mSoundText;
 	
-
-	private ListView mListView;
+//	private ListView mListView;
 	//private ChatMsgViewAdapter mAdapter;
 	//private OBLFriendChatMsgListAdapter mChatMsgListAdapter;
 	private ChatMsgViewAdapter mChatMsgListAdapter;
@@ -192,7 +192,6 @@ public class Chat2Activity extends Activity implements OnClickListener
     
     public void initView()
     {
-    	mListView = (ListView) findViewById(R.id.listview);
     	mTxtChatTitle = (TextView) findViewById(R.id.txtChatTitle);
     	mTxtChatTitle.setText(mFriendName);
     	//----- -----
@@ -212,11 +211,11 @@ public class Chat2Activity extends Activity implements OnClickListener
     	chat_btn_audio_send = (Button) findViewById(R.id.chat_btn_audio_send);
     	chat_btn_msg_send = (Button) findViewById(R.id.chat_btn_msg_send);
     	
-    	chat_layout_main = findViewById(R.id.chat_layout_main);
+    	chat_layout_main = (RelativeLayout) findViewById(R.id.chat_layout_main);
     	chat_layout_text = (LinearLayout) findViewById(R.id.ChatTextLayout);		// 文字聊天是显示的部分
-    	chat_layout_audio = (LinearLayout) findViewById(R.id.ChatAudioLayout);	// 音频聊天的显示部分
-    	chat_layout_more = findViewById(R.id.chatMoreLayout);	// 点击更多的弹出面板
-    	chat_layout_face = findViewById(R.id.faceListLayout);	// 展示表情的地方
+    	chat_layout_audio = (FrameLayout) findViewById(R.id.ChatAudioLayout);	// 音频聊天的显示部分
+    	chat_layout_more = (FrameLayout) findViewById(R.id.chatMoreLayout);	// 点击更多的弹出面板
+    	chat_layout_face = (FrameLayout) findViewById(R.id.faceListLayout);	// 展示表情的地方
     	mGridView = (KUKFaceView) findViewById(R.id.faceGridView);
     	
 		mChatMsgListView = (ListView) findViewById(R.id.chatMsgListView);
@@ -230,7 +229,7 @@ public class Chat2Activity extends Activity implements OnClickListener
 		// 图片展示ImageView
 		mImagePreview = (ImageView) findViewById(R.id.previewImage);
 		// 录音展示的图像
-		mRecorderView = findViewById(R.id.AudioRecorderView);
+		mRecorderView = (FrameLayout) findViewById(R.id.AudioRecorderView);
 		mSoundText = (TextView) findViewById(R.id.soundRateText);
     	//----- -----
     	chat_btn_msg_send.setOnClickListener(this);
@@ -286,14 +285,13 @@ public class Chat2Activity extends Activity implements OnClickListener
 	}
     
     //private String[]msgArray = new String[]{"有大吗", "有！你呢？", "我也有", "那上吧", "打啊！你放大啊", "你tm咋不放大呢？留大抢人头那！Cao的。你个菜b", "2B不解释", "尼滚....",};
-    private String[]msgArray = new String[]{"你好", "我很好！你呢？", "我不好",};
+    private String[]msgArray = new String[]{"你好", "我很好！你呢？", "我不好"};
     //private String[]dataArray = new String[]{"2014-07-16 18:00", "2012-09-01 18:10", "2012-09-01 18:11", "2012-09-01 18:20", "2012-09-01 18:30", "2012-09-01 18:35", "2012-09-01 18:40", "2012-09-01 18:50"}; 
     private String[]dataArray = new String[]{"2014-07-16 18:00", "2012-09-01 18:10", "2012-09-01 18:11"}; 
     //private final static int COUNT = 8;
     private final static int COUNT = 3;
     public void initData()
     {
-    	mTxtChatTitle.setText("小黑");
     	for(int i = 0; i < COUNT; i++)
     	{
     		ChatMsgEntity entity = new ChatMsgEntity();
@@ -312,7 +310,7 @@ public class Chat2Activity extends Activity implements OnClickListener
     	}
 
     	mChatMsgListAdapter = new ChatMsgViewAdapter(this, mDataArrays);
-		mListView.setAdapter(mChatMsgListAdapter);
+    	mChatMsgListView.setAdapter(mChatMsgListAdapter);
 		
     }
 
@@ -325,9 +323,9 @@ public class Chat2Activity extends Activity implements OnClickListener
 //		case R.id.btn_send:
 //			send();
 //			break;
-//		case R.id.btn_back:
-//			finish();
-//			break;
+		case R.id.btn_back:
+			finish();
+			break;
 			
 		case R.id.chat_img_audit://ChatMsgAudioImg:
 			// 隐藏文字发送功能，现实语音发送功能
@@ -349,6 +347,8 @@ public class Chat2Activity extends Activity implements OnClickListener
 			chat_img_keyboard.setVisibility(View.GONE);
 			chat_edit_msg.setVisibility(View.VISIBLE);
 			chat_layout_audio.setVisibility(View.GONE);
+
+			chat_img_more.setVisibility(View.VISIBLE);
 			//
 			hideSoftInputKeyboard(chat_edit_msg);
 			chat_edit_msg.clearFocus();
@@ -807,7 +807,7 @@ public class Chat2Activity extends Activity implements OnClickListener
 	 */
 	public File getRecorderFile() {
 		File directoryFile = new File(Environment.getExternalStorageDirectory()
-				+ "/open/");
+				+ "/xbd/");
 		if (!directoryFile.exists()) {
 
 			directoryFile.mkdir();

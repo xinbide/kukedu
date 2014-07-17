@@ -7,9 +7,12 @@ import com.xbd.kuk.app.Chat2Activity;
 import com.xbd.kuk.app.ChatActivity;
 import com.xbd.kuk.app.ExitActivity;
 import com.xbd.kuk.app.MainTopRightDialog;
+import com.xbd.kuk.bean.ChatRecordItem;
+import com.xbd.kuk.model.ChatRecordAdapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -19,16 +22,15 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -50,6 +52,7 @@ public class MainActivity extends Activity {
 	private PopupWindow menuWindow;
 	private LayoutInflater inflater;
 	//private Button mRightBtn;
+	private ListView listChatRecord;	//聊天记录
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,7 +94,7 @@ public class MainActivity extends Activity {
         //Log.i("info", "获取的屏幕分辨率为" + one + two + three + "X" + displayHeight);
         
         //InitImageView();//使用动画
-      //将要分页显示的View装入数组中
+        //将要分页显示的View装入数组中
         LayoutInflater mLi = LayoutInflater.from(this);
         View view0 = mLi.inflate(R.layout.layout_main_tab_message, null);
         View view1 = mLi.inflate(R.layout.layout_main_tab_course, null);
@@ -99,14 +102,14 @@ public class MainActivity extends Activity {
         View view3 = mLi.inflate(R.layout.layout_main_tab_friends, null);
         View view4 = mLi.inflate(R.layout.layout_main_tab_settings, null);
         
-      //每个页面的view数据
+        //每个页面的view数据
         final ArrayList<View> views = new ArrayList<View>();
         views.add(view0);
         views.add(view1);
         views.add(view2);
         views.add(view3);
         views.add(view4);
-      //填充ViewPager的数据适配器
+        //填充ViewPager的数据适配器
         PagerAdapter mPagerAdapter = new PagerAdapter() {
 			
 			@Override
@@ -137,6 +140,25 @@ public class MainActivity extends Activity {
 		};
 		
 		mTabPager.setAdapter(mPagerAdapter);
+		
+		//绑定每个用户的最后一条聊天记录到 呈现列表中
+		listChatRecord = (ListView)view0.findViewById(R.id.listChatRecord);
+		ArrayList<ChatRecordItem> listItems = getChatRecordData();
+		ChatRecordAdapter chatAdapter = new ChatRecordAdapter(this, listItems);
+		listChatRecord.setAdapter(chatAdapter);
+		listChatRecord.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapterview, View view, int position, long id) {
+//				FriendItem friend = (FriendItem) adapterview.getAdapter().getItem(position);
+				ChatRecordItem friend = (ChatRecordItem) adapterview.getAdapter().getItem(position);
+				Intent intent = new Intent (MainActivity.this, Chat2Activity.class);
+				intent.putExtra("friendName", friend.getName());
+				intent.putExtra("sessionId", friend.getUserId() + "." + friend.getUserId());
+				intent.putExtra("friendicon", friend.getAvatarUrl());
+				startActivity(intent);
+			}
+		});
     }
     /**
 	 * 头标点击监听
@@ -322,6 +344,29 @@ public class MainActivity extends Activity {
 		}
     	return false;
     }
+	
+	//----- ----- 
+	public ArrayList<ChatRecordItem> getChatRecordData(){
+		ArrayList<ChatRecordItem> items = new ArrayList<ChatRecordItem>();
+		ChatRecordItem item = new ChatRecordItem();
+		item.setUserId(10241);
+		item.setAvatarUrl("http://www.baidu.com/img/baidu_sylogo1.gif");
+		item.setAvatar(Uri.parse(item.getAvatarUrl()));
+		item.setName("小黑");
+		item.setTimeAgo("昨天");
+		item.setConten("DoTa又赢了一局");
+		items.add(item);
+		item = new ChatRecordItem();
+		item.setUserId(10242);
+		item.setAvatarUrl("http://6.su.bdimg.com/bigicon/24/101.png?6");
+		item.setAvatar(Uri.parse(item.getAvatarUrl()));
+		item.setName("MIT");
+		item.setTimeAgo("2小时前");
+		item.setConten("刀塔为何物");
+		items.add(item);
+		return items;
+	}
+	
 	//设置标题栏右侧按钮的作用
 	public void btnmainright(View v) {  
 		Intent intent = new Intent (MainActivity.this, MainTopRightDialog.class);
@@ -329,8 +374,7 @@ public class MainActivity extends Activity {
     }
 	public void startchat(View v) {      //小黑  对话界面
 		//Intent intent = new Intent (MainActivity.this, ChatActivity.class);
-		Intent intent = new Intent (MainActivity.this, Chat2Activity.class);
-		startActivity(intent);
+		//startActivity(intent);
     }
 	public void exit_settings(View v) {                           //退出  伪“对话框”，其实是一个activity
 //		Intent intent = new Intent (MainActivity.this, ExitFromSettings.class);
